@@ -1,0 +1,12 @@
+{
+  "name": "efrei-2023-st2-tst-prj-t",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/vincentpetitpro/efrei-2023-st2-tst-prj-t",
+  "author": "TimPrevotPro <timothe.prevot@efrei.net>",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.29.1"
+  },
+  "scripts": {}
+}
