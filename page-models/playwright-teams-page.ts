@@ -13,8 +13,8 @@ export class PlaywrightTeamsPage {
         this.homePageLink = page.locator('body').locator('nav').locator('a', { hasText: 'Home' });
         this.title = page.locator('body').locator('h1', { hasText: 'Teams' });
         this.firstTeamLink = page.locator('body').locator('table').locator('tbody').locator('tr').first().locator('td').nth(1).locator('a', { hasText: 'View members' });
-        this.secondTeamLink = page.locator('body').locator('table').locator('tbody').locator('tr').first().locator('td').nth(2).locator('a', { hasText: 'Delete' });
-        this.deleteFirstTeam = page.locator('body').locator('table').locator('tbody').locator('tr').nth(1).locator('td').nth(1).locator('a', { hasText: 'View members' });
+        this.deleteFirstTeam = page.locator('body').locator('table').locator('tbody').locator('tr').first().locator('td').nth(2).locator('a', { hasText: 'Delete' });
+        this.secondTeamLink = page.locator('body').locator('table').locator('tbody').locator('tr').nth(1).locator('td').nth(1).locator('a', { hasText: 'View members' });
         this.deleteSecondTeam = page.locator('body').locator('table').locator('tbody').locator('tr').nth(1).locator('td').nth(2).locator('a', { hasText: 'Delete' });
     }
 

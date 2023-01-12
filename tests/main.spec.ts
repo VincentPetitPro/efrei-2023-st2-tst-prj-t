@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Locator } from '@playwright/test';
 import {PlaywrightMainPage} from "../page-models/playwright-main-page";
 import {PlaywrightTeamsPage} from "../page-models/playwright-teams-page";
 import {PlaywrightTeamPage} from "../page-models/playwright-team-page";
@@ -12,6 +12,7 @@ test.describe('navigation', () => {
   });
   test('a player added to two teams should be in both teams', async ({ page }) => {
     const playwrightMainPage = new PlaywrightMainPage(page);
+
     // add player 'ducki' to team 't'
     await playwrightMainPage.listEmployeesLink.click();
     await expect(page).toHaveURL('https://t.hr.dmerej.info/employees');
@@ -25,11 +26,13 @@ test.describe('navigation', () => {
     await addToTeamPage.teamSelector.selectOption('t team');
     await addToTeamPage.addButton.click();
     await expect(page).toHaveURL('https://t.hr.dmerej.info/employee/1');
+
     // add the same player to team 'test'
     await playwrightEmployeePage.addToTeamLink.click();
     await addToTeamPage.teamSelector.selectOption('test team');
     await addToTeamPage.addButton.click();
     await expect(page).toHaveURL('https://t.hr.dmerej.info/employee/1');
+
     // check if player 'ducki' is in team t
     await playwrightEmployeePage.homePageLink.click();
     await expect(page).toHaveURL('https://t.hr.dmerej.info');
@@ -39,14 +42,14 @@ test.describe('navigation', () => {
     await playwrightTeamsPage.firstTeamLink.click();
     await expect(page).toHaveURL('https://t.hr.dmerej.info/team/1/members');
     const playwrightTeamPage1 = new PlaywrightTeamPage(page);
-    await expect(playwrightTeamPage1.ducki).toBeTruthy();
+    expect( await playwrightTeamPage1.page.locator('body').locator('ul').locator('li').count()).toEqual(1);
+
     // check if player 'ducki' is in team 'test'
     await playwrightTeamPage1.homePageLink.click();
     await playwrightMainPage.listTeamsLink.click();
     await playwrightTeamsPage.secondTeamLink.click();
-    await expect(page).toHaveURL('https://t.hr.dmerej.info/team/delete/1');
     const playwrightTeamPage2 = new PlaywrightTeamPage(page);
-    await expect(playwrightTeamPage2.ducki).toBeTruthy();
+    expect( await playwrightTeamPage2.page.locator('body').locator('ul').locator('li').count()).toEqual(2);
   });
 
 })
