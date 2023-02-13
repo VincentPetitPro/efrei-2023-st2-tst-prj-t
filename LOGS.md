@@ -1,9 +1,39 @@
 #Log file
 
-## 06/12/2022 entries
+## 1 Log 06/12/2022 entries
 
 HR Database ==> CRUD API behind?
 > Actions appearing: `GET`, `POST`, `DELETE` | no `UPDATE`
+
+Using common sense we managed to create a test plan.
+Knowing the CRUD actions it is fairly simple.
+
+Navigate to each page and test every action.
+The goal is to compare the expected output/result to the actuel one.
+
+We tested user inputs with every type of inputs.
+
+After running the tests by hand we use GitHub issues to keep track of bugs.
+
+## 2 Log
+
+We identified more bugs that are reported in the GitHub issues page with their respective time and day.
+
+We carefully re run our tests manually to complete or second batch. With a complete test plan it is easy to track bugs as we had nothing to do but to run them.
+
+## 3 Log
+
+We then implemented our tests using best pratices we found online.
+
+UI testing is kinda tricky at first because it is not always about the result but the app's behaviour.
+We chose TypeScript for testing and separated every aspect of the application in our tests' files.
+
+## Conclusion of our logs
+
+We got use to UI testing as the type of results are not always of the type we expected (that does not mean a test fails).
+Playwright is awesome as it is simple to use.
+
+One thing to think about when integrating UI tests in CI/CD or when using a dev env is applications do not always have data attached to them (a test db). Some data may not be necessary. This is why we need to think about a database seed to put relevant and correct data.
 
 **CHECK PREVENTED ACTIONS**
 
@@ -55,7 +85,7 @@ String too long:
 	`{hiring_date: !different from date!, job_title: "string"}`
 
 - **Boundary values**
-	- Name  
+	- Name 
 	`name: "stringstringstring"`
 	- Email  
 	`email: "exampleexampleexampleexample@emailemailemail.com"`
