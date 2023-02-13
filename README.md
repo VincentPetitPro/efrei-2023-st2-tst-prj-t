@@ -1,5 +1,8 @@
 # ST2 Software Testing Project for EFREI (2022/2023 edition)
 
+# WARNING: WE NEED TO BE ABLE TO SEED THE DATABASE IN ORDER TO RUN TESTS EASILY
+# THESE TESTS WILL ONLY WORK IF YOU HAVE THE CORRECT DATA ALREADY IN YOUR DATABASE
+
 ## Introduction
 
 This repository contains all the information you need to complete the
